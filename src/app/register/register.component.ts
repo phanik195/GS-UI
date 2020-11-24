@@ -12,7 +12,7 @@ import { EmployeeService } from "../service/employee.service";
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  loginForm: FormGroup;
+  registration: FormGroup;
   gender:any = "male";
   showMsg:Boolean= false;
 
@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
 
     this.gender = "male";
-    this.loginForm = this.formBuilder.group({
+    this.registration = this.formBuilder.group({
       firstName:['',Validators.required],
       lastName:['',Validators.required],
       gender: [''],
@@ -35,12 +35,12 @@ export class RegisterComponent implements OnInit {
   
 
   onSubmit(){
-    console.log(this.loginForm.value);
+    console.log(this.registration.value);
     
-    this.loginForm.value.dob = this.datePipe.transform(this.loginForm.value.dob,"yyyy-MM-dd");
-      this.employeeService.saveEmploye(this.loginForm.value).subscribe(data =>{
+    this.registration.value.dob = this.datePipe.transform(this.registration.value.dob,"yyyy-MM-dd");
+      this.employeeService.saveEmploye(this.registration.value).subscribe(data =>{
         this.showMsg = true;
-        this.loginForm.reset();
+        this.registration.reset();
       },(error)=>{
         console.log("Error",error)
       });

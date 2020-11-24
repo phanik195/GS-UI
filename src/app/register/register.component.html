@@ -13,7 +13,7 @@
         <div class="col-md-6 offset-md-3 col-xs-6">
                 <h4>Registration</h4>
 
-            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="registration" (ngSubmit)="onSubmit()">
                 <br/>
                 <div class="col-md-12">
                     <div class="form-group">
@@ -61,7 +61,7 @@
                     <div class="form-group">
                         <p>
                             <mat-form-field>
-                               <mat-label>Choose a date</mat-label>
+                               <mat-label>Date of Birth</mat-label>
                                <input matInput [matDatepicker]="picker" formControlName="dob" >
                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                <mat-datepicker #picker startView="year"  [startAt]="startDate"></mat-datepicker>
@@ -70,7 +70,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <button [disabled]="!loginForm.valid" class="btn btn-primary">Login</button>
+                    <button [disabled]="!registration.valid" class="btn btn-primary">Submit</button>
                 </div>
                 <div *ngIf="error" class="alert alert-danger">{{error}}</div>
             </form>
