@@ -11,14 +11,14 @@ export class EmployeeService {
   constructor(private apiService:ApiService) { }
 
   saveEmploye(employee:any): Observable<any>{
-      return this.apiService.post('/create/employee',{ employee: employee })
+      return this.apiService.post('/employee',{ employee: employee })
       .pipe(data =>{
         return data;
       });
   }
 
   getEmployees():Observable<any>{
-      return this.apiService.get('/employee/list').pipe(data =>{
+      return this.apiService.get('/employee').pipe(data =>{
         return data;
       });
   }

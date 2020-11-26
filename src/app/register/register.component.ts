@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, EmailValidator} from '@angular/forms';
 import { DatePipe } from '@angular/common';
 
 
@@ -29,7 +29,8 @@ export class RegisterComponent implements OnInit {
       lastName:['',Validators.required],
       gender: [''],
       department: ['', Validators.required],
-      dob:['',Validators.required]
+      dob:['',Validators.required],
+      email:['',Validators.required]
     })
   }
   
